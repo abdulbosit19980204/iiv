@@ -1,6 +1,7 @@
 import asyncio
 import logging
 import sys
+import wikipedia
 from os import getenv
 
 from aiogram import Bot, Dispatcher, Router, types
@@ -24,18 +25,11 @@ async def command_start_handler(message: Message) -> None:
     await message.answer(f"Hello, {hbold(message.from_user.full_name)}!")
     print(message)
 @dp.message()
-async def echo_handler(message: types.Message) -> None:
-    """
-    Handler will forward receive a message back to the sender
-
-    By default, message handler will handle all message types (like a text, photo, sticker etc.)
-    """
+async def dataSender(message: types.Message):
     try:
-        # Send a copy of the received message
-        await message.send_copy(chat_id=message.chat.id)
-    except TypeError:
-        # But not all the types are supported to be copied, so need to handle it
-        await message.answer("Nice try!")
+        respond = wikipedia.summary(message.text)
+    except:
+        await message.answer("Bunday shaxs topilmadi")
 
 async def main() -> None:
     # Initialize Bot instance with a default parse mode which will be passed to all API calls
