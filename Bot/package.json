@@ -1,0 +1,15 @@
+{
+  "name": "sindiramiz_bot",
+  "version": "1.0.0",
+  "description": "looking for information",
+  "main": "index.py",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "bot",
+    "telegram"
+  ],
+  "author": "Abdulbosit Tuychiev t.me/abdulbosit_tatu",
+  "license": "ISC"
+}
